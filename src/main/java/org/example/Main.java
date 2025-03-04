@@ -5,73 +5,22 @@ package org.example; // 없으면 안됨
 
 class Main {
     public static void main(String[] args) {
-        if ( true ) {
-            System.out.println("참");
+        int age = 38;
+
+        if (10 > age && age > 0){
+            System.out.println("영유아");
         }
-
-        if ( false ) {
-            System.out.println("거짓");
+        else if (20 > age){ // 양립할 수 없음 -> 무조건 한가지만 참
+            System.out.println("10대");
         }
-
-        int a = 10;
-
-        // `==` => 같다.
-        if ( a == 10 ) {
-            System.out.println("참1");
+        else if (30 > age){ // python의 elif와 같은 작동
+            System.out.println("20대");
         }
-
-        // `!=` => 같지 않다.
-        if ( a != 10 ) {
-            System.out.println("거짓1");
+        else if (40 > age){
+            System.out.println("30대");
         }
-
-        if ( a > 10 ) {
-            System.out.println("거짓2");
-        }
-
-        if ( a >= 10 ) {
-            System.out.println("참2");
-        }
-
-        int b = 10;
-
-        if ( a == b ) {
-            System.out.println("참3");
-        }
-
-        // boolean c => c 에는 오직 true/false 만 담을 수 있다.
-        boolean c = a != b;
-
-        if ( c ) {
-            System.out.println("거짓3");
-        }
-
-        if ( c == false ) {
-            System.out.println("참4");
-        }
-
-        // `!` => 반전
-        if ( !c ) {
-            System.out.println("참5");
-        }
-
-        // `!` => 반전
-        if ( !(!c) ) {
-            System.out.println("거짓4");
-        }
-
-        boolean d = true;
-
-        if ( c != d ) {
-            System.out.println("참6");
-        }
-
-        if ( 20 > 2 && 10 > 3 && true != false && 10 != 10 ) {
-            System.out.println("거짓5");
-        }
-
-        if ( 10 != 10 || 10 < 2 ) {
-            System.out.println("거짓6");
+        else {
+            System.out.println("40대 이상");
         }
     }
 }
