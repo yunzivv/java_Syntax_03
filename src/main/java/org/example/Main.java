@@ -1,34 +1,77 @@
-package org.example;
+package org.example; // 없으면 안됨
 
 
-// 문제 : a와 b가 가지고 있는 값을 서로 뒤바꿔주세요.
+// 문제 : 실행되는 출력문에는 참 그렇지 않으면 거짓 이라고 적어주세요.
 
 class Main {
     public static void main(String[] args) {
-        // `int a` => a라는 이름의 변수(즉 공간)을 만든다.
-        // `int` => a라는 공간에는 정수만 담을 수 있다.
-        // `;` => 문장이 끝남을 알린다.
-        int a;
-        a = 5;
+        if ( true ) {
+            System.out.println("참");
+        }
 
-        System.out.println(a);
-        System.out.println(a + 10);
+        if ( false ) {
+            System.out.println("거짓");
+        }
+
+        int a = 10;
+
+        // `==` => 같다.
+        if ( a == 10 ) {
+            System.out.println("참1");
+        }
+
+        // `!=` => 같지 않다.
+        if ( a != 10 ) {
+            System.out.println("거짓1");
+        }
+
+        if ( a > 10 ) {
+            System.out.println("거짓2");
+        }
+
+        if ( a >= 10 ) {
+            System.out.println("참2");
+        }
 
         int b = 10;
 
-        // `+` => 문장과 문자을 합친다.
-        System.out.println("a : " + a);
-        System.out.println("b : " + b);
+        if ( a == b ) {
+            System.out.println("참3");
+        }
 
-        // 여기서 부터
-        int c = a;
-        a = b;
-        b = c;
-        // 여기까지 수정 가능
+        // boolean c => c 에는 오직 true/false 만 담을 수 있다.
+        boolean c = a != b;
 
-        System.out.println("a : " + a);
-        // 출력 : a : 10
-        System.out.println("b : " + b);
-        // 출력 :  b : 5
+        if ( c ) {
+            System.out.println("거짓3");
+        }
+
+        if ( c == false ) {
+            System.out.println("참4");
+        }
+
+        // `!` => 반전
+        if ( !c ) {
+            System.out.println("참5");
+        }
+
+        // `!` => 반전
+        if ( !(!c) ) {
+            System.out.println("거짓4");
+        }
+
+        boolean d = true;
+
+        if ( c != d ) {
+            System.out.println("참6");
+        }
+
+        if ( 20 > 2 && 10 > 3 && true != false && 10 != 10 ) {
+            System.out.println("거짓5");
+        }
+
+        if ( 10 != 10 || 10 < 2 ) {
+            System.out.println("거짓6");
+        }
     }
 }
