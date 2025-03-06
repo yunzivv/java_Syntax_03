@@ -1,5 +1,7 @@
 package org.example;
 
+// code up 1018
+
 import java.util.Scanner;
 
 class Main {
@@ -7,11 +9,11 @@ class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        int a = sc.nextInt();
-        System.out.println(a);
+        String s = sc.nextLine();
+        int a = Integer.parseInt(s);
+        System.out.print(a);
     }
+
 }
-// untitled 버리고 java_Syntax_03 사용\
-// 여기서 add push만 하면 됨
-// git bash 열 때 파일 안에서 git bash herer
+
 
