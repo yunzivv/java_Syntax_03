@@ -1,6 +1,6 @@
 package org.example;
 
-// 배열 생성과 값 대입 250307
+// 배열 - 2차원 배열, 3차원 배열 250310
 
 import java.util.Scanner;
 
@@ -9,44 +9,23 @@ class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        boolean[] arr1 = {true, false, true}; // 바로 대입하는 법?
-//        arr1[0] = true;
-//        arr1[1] = false;
-//        arr1[2] = true;
-        System.out.println(arr1); // arr1의 주소값 출력
+        int a = 10; // 점
 
-        arr1 = new boolean[3]; // 같은 변수에 새로운 배열 대입 가능
+        int[] arr = new int [3]; // 선, liner : 선형구조를 가짐
 
-        double[] arr2 = new double[3];
-        arr2[0] = 3.14;
-        arr2[1] = 7.77;
-        arr2[2] = 11.11;
+        int[][] arr2nd = new int [2][3]; // 면 3개씩 2묶음, 2d 2차원배열, 테이블 형태
 
+        int[][][] arr3nd = new int [3][3][3]; // 입체형 3d 3차원배열, 육면체 형태
 
-        int[] arr3 = new int[10];
-        for (int i = 0; i < arr3.length; i++){ // i는 for문 탈출하면 죽음...rip
-            arr3[i] = i + 1; // 여기에 출력문 작성해도 됨
-        }
+        // d : dimension 차원
 
-        int[] arr4 = new int[]{1,3,5,7};
+        // hip 영역 : 랜덤으로 메모리 할당
+        // stack 영역 : 순차적으로 메모리 할당, 쌓임
 
+        // (hip 영역에 만들어진)객체(object) == 인스턴스 == 폴더
+        // 객체 안에 있는 변수처럼 동작하는 공간 == 인스턴스 변수
+        // (hip 영역에 만들어지지 않은 객체)클래스 == 인스턴스 설계도 == 객체 설계도 == 폴도 설계도 == 설계도
 
-        System.out.println("= arr1 출력 =");
-        for (int i = 0; i < arr1.length; i++){
-            System.out.println(arr1[i]);
-        }
-        System.out.println("= arr2 출력 =");
-        for (int i = 0; i < arr2.length; i++){
-            System.out.println(arr2[i]);
-        }
-        System.out.println("= arr3 출력 =");
-        for (int i = 0; i < arr3.length; i++){
-            System.out.println(arr3[i]);
-        }
-        System.out.println("= arr4 출력 =");
-        for (int i = 0; i < arr4.length; i++){
-            System.out.println(arr4[i]);
-        }
     }
 
 }
