@@ -1,33 +1,46 @@
 package org.example;
 
-// 배열 - 2차원 배열, 3차원 배열 250310
+// 배열 - class 생성, 객체 연결 250310
 
 import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // ctrl + shift + o -> 자동 import
 
-        int a = 10; // 점
+        member a1 = new member();
+        a1.age = 22;
+        a1.name = "류현진";
+        a1.isMarried = false;
+        a1.hello(); // 클래스 내의 함수 호출하여 사용
+        a1.introduce();
 
-        int[] arr = new int [3]; // 선, liner : 선형구조를 가짐
+        member a2 = new member();
+        a2.age = 24;
+        a2.name = "박영수";
+        a2.isMarried = true;
+        a2.introduce();
 
-        int[][] arr2nd = new int [2][3]; // 면 3개씩 2묶음, 2d 2차원배열, 테이블 형태
-
-        int[][][] arr3nd = new int [3][3][3]; // 입체형 3d 3차원배열, 육면체 형태
-
-        // d : dimension 차원
-
-        // hip 영역 : 랜덤으로 메모리 할당
-        // stack 영역 : 순차적으로 메모리 할당, 쌓임
-
-        // (hip 영역에 만들어진)객체(object) == 인스턴스 == 폴더
-        // 객체 안에 있는 변수처럼 동작하는 공간 == 인스턴스 변수
-        // (hip 영역에 만들어지지 않은 객체)클래스 == 인스턴스 설계도 == 객체 설계도 == 폴도 설계도 == 설계도
 
     }
+}
 
+class member {
+    int age;
+    String name;
+    boolean isMarried;
+
+    void hello() { // 함수 정의 / 메서드는 개수 제한이 없음
+        System.out.println("안녕하시오");
+    }
+
+    void introduce() {
+        int age = this.age; // class의 age와 스코프가 다르다.
+        System.out.printf("내 이름은 %s\n", this.name);
+        System.out.printf("나이는 %d살\n", age);
+        System.out.printf("결혼여부는 %b\n\n", this.isMarried);
+    }
 }
 
 
