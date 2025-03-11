@@ -1,25 +1,20 @@
 package org.example;
 
-// 문제 3 : 아래와 같이 출력 되도록 해주세요.
+// 문제 4 : 일반변수에 값 할당과정 설명
 
 class Main {
     public static void main(String[] args) {
-        int 결과1 = Math.nToMSum(2, 3);
-        System.out.println("결과1 : " + 결과1);
-        // 출력 : 결과1 : 5
+        // 설명
+        // int : 정수만 담을 수 있는 자료형
+        // x : 변수명
+        // 정수만 담을 수 있는 int 자료형을 가진 변수 x 생성
+        // 처음에는 값 대입을 하지 않았기 때문에 int의 기본값인 0이 저장된다.
+        int x;
 
-        int 결과2 = Math.nToMSum(5, 10);
-        System.out.println("결과2 : " + 결과2);
-        // 출력 : 결과2 : 45
-    }
-}
-
-class Math {
-    static int nToMSum(int a, int b){
-        int sum = 0;
-        for(int i = a; i <= b; ++i){
-            sum += i;
-        }
-        return sum;
+        // 설명
+        // x라는 변수명을 가진 변수에 20이라는 값 대입
+        // 가지고 있는 기본값 0을 버리고 20 저장
+        // 변수 x는 정수만 담을 수 있기 때문에 올바른 대입
+        x = 20;
     }
 }
