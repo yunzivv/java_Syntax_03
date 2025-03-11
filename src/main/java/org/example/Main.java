@@ -1,35 +1,52 @@
 package org.example;
 
-// 문제 6 : 사람을 말하게 해주세요.
-// 문제 7 : 아래 코드가 실행되도록 해주세요.
+// 문제 8 : 클래스 5개 이상 만들고 각각을 객체화 하여 메서드를 호출해주세요.
 
 class Main {
     public static void main(String[] args) {
+        one a = new one();
+        a.oneFun();
 
-        사람 man = new 사람();
-        man.말하다();
+        two b = new two();
+        b.twoFun();
 
-        거북이 a거북이 = new 거북이();
+        three c = new three();
+        c.threeFun();
 
-        a거북이.걷다();
-        // 출력 => 거북이가 걷다
-        a거북이.수영하다();
-        // 출력 => 거북이가 수영하다
+        four d = new four();
+        d.fourFun();
+
+        five e = new five();
+        e.fiveFun();
     }
 }
 
-class 사람 {
-    // 사람은 `말하다` 라는 기능을 가지고 있습니다.
-    void 말하다() {
-        System.out.println("사람이 말합니다.");
+class one {
+    void oneFun() {
+        System.out.println("one");
     }
 }
 
-class 거북이 {
-    void 걷다(){
-        System.out.println("거북이가 걷다");
+class two {
+    void twoFun() {
+        System.out.println("two");
     }
-    void 수영하다(){
-        System.out.println("거북이가 수영하다");
+}
+
+class three {
+    void threeFun() {
+        System.out.println("three");
+    }
+}
+
+class four {
+    void fourFun() {
+        System.out.println("four");
+    }
+}
+
+class five {
+    void fiveFun() {
+        System.out.println("five");
     }
 }
