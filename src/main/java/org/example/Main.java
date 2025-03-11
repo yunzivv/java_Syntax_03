@@ -1,45 +1,55 @@
 package org.example;
 
-// static 메서드와 Non static 메서드-2 250311
+// 변수 - 전역변수, 지역변수, 매개변수  250311
 
 import java.util.Scanner;
-
 class Main {
+
+    int aa = 30; //static이 아닌 전역변수
+    static int a = 50; // static 전역변수
+
     public static void main(String[] args) {
-
 //        Scanner sc = new Scanner(System.in); // ctrl + shift + o -> 자동 import
-        // 1. 객체와 변수를 만들고 연결해서 MyClass 접근
-        MyClass a = new MyClass();
-        a.wow = 101;
-        System.out.println("== 1. 객체 생성하고 a 변수에 연결 ==");
-        a.hi();
+        System.out.println(a); // a = 9행의 전역변수
 
-        //2. 객체를 변수에 대입하지 않고 일회용 객체로 MyClass 접근
-        System.out.println("\n== 2. 변수 연결 없는 객체 생성(일회용 객체) ==");
-        new MyClass().hi();
+        int aa = 55;
+        System.out.println(aa); // a = 15행의 지역변수
 
-        //3. 객체를 만들지 않고 MyClass의 static 함수 실행
-        System.out.println("\n== 객체, 변수 없이 MyClass 함수 실행 ==");
-        MyClass.hi2();
+        ex();
+
+        cal.sum();
+
+        cal.sum(10, 20); // 괄호 안의 10, 20 인수(argument)을 sum 함수로 넘겨줌
+        cal.sum(30, 40); // 함수에서 받을 매개변수의 개수와 자료형을 맞춰줘야함, 순서대로 매치
 
     }
 
-    static void hello() { //
-        System.out.println("hello 실행");
+    public static void ex() {
+        System.out.println(a); // a = 9행의 전역변수
     }
 }
 
-class MyClass {
-    int wow;
-    // 인스턴스 메서드
-    void hi() { // Non Static
-        System.out.println("hi 메서드 실행, wow는 : " + this.wow);
+class cal {
+
+    static void sum() {
+        System.out.println("a + b");
     }
-    // 클래스 메서드
-    // 메서드 내부에서 인스턴스 변수를 사용할 수 없음
-    static void hi2() { // Static : 객체화 없이 사용 가능. 설계도 차원에서 기능 뽑아서 사용 가능
-        System.out.println("hi2 실행");
+
+    static void sum(int a) {
+        System.out.println("a + b");
     }
+
+    static void sum(int a, int b) { // (int a, int b) => 매개변수(parameter), 함수 내부와 외부를 연결하는 매개체
+//        int a = 10; // 매개변수는 지역변수의 일종, a는 이미 선언되어 있음
+        System.out.println(a + b);
+    }
+
+    // sum()과 sum(int a, int b)의 함수명이 같음에도 오류가 나지 않는 이유
+    // 메서드 시그니처가 다르기 때문
+    // 메서드 시그니처 : 함수명 + 매개변수 (매개변수의 변수명은 관련 없음)
+
+    // 다형성(Polymorphism) 중에 오버로딩 상황이다
+
 }
 
 
