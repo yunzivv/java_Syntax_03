@@ -61,7 +61,7 @@ class 전사 {
 //    }
 
     void 공격() {
-        String 공격자 = this.이름;
+        a무기.공격자 = this.이름;
         this.a무기.공격();
 
         // 내 풀이
@@ -79,7 +79,7 @@ abstract class 무기 {
 
 class 칼 extends 무기 {
     void 공격() {
-        System.out.println(this.공격자 + "가 칼로 공격합니다.");
+        System.out.println(공격자 + "가 칼로 공격합니다."); // this 생략버전
     }
 }
 
