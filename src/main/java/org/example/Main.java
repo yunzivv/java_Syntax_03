@@ -3,125 +3,42 @@ package org.example;
 import java.awt.*;
 import java.util.Arrays;
 
-// 상속 문제 250313
-
-// 문제 : 아래 코드가 실행되도록 해주세요.
-
-// 상황 : DVD방에 3개의 서로다른 tv가 있다.
-// 영업을 하다보니 각 tv의 특별한 기능은 거의 사용될 일이 없고
-// 기본적인 켜기/끄기 만 사용된다. 현재 리모콘이 3개나 있는습니다.
-// 문제 : 알바를 편하게 하기 위해서 표준Tv 리모콘을 구현해주세요.
+// 상속 250313
+// 문제 : 자동차 리모콘이 페라리 객체를 가리키게 한 후
+// 해당 리모콘이 가리키고 있는 객체를 다시 페라리 리모콘으로 가리키게(참조하게) 하는 코드를 작성해주세요.
 
 class Main {
     public static void main(String[] args) {
-        System.out.println("== 표준Tv 리모콘 들여오기 전 ==");
+        // 수정가능지역 시작
 
-        샤오미Tv a샤오미Tv = new 샤오미Tv();
-        삼성Tv a삼성Tv = new 삼성Tv();
-        LGTv aLGTv = new LGTv();
+        // case 1
+        자동차 자동차리모콘 = new 자동차();
+        페라리 페라리리모콘 = 자동차리모콘;
+        // 위 코드가 안되는 이유
+        // 만약 자동차 클래스를 상속받는 다른 현대클래스가 있을 경우
+        // 자동차리모콘이 현대클래스로 만든 객체를 갖고 있다면?
 
-        a샤오미Tv.켜기();
-        // 출력 => 샤오미Tv 켜집니다.
-        a샤오미Tv.끄기();
-        // 출력 => 샤오미Tv 꺼집니다.
-        a샤오미Tv.vr켜기();
-        // 출력 => 샤오미Tv vr켜기!
+        // case 2
+        // 이건 가능
+        자동차 자동차리모콘2 = new 페라리();
+        페라리 페라리리모콘2 = (페라리) 자동차리모콘2;
 
-        a삼성Tv.켜기();
-        // 출력 => 삼성Tv 켜집니다.
-        a삼성Tv.끄기();
-        // 출력 => 삼성Tv 꺼집니다.
-        a삼성Tv.ar켜기();
-        // 출력 => 삼성Tv ar켜기!
+        // case 3
+        // exception 오류(아마) 실행 후 런타임에서 오류 발생
+        // 컴파일러는 알지 못한다.
+        자동차 자동차리모콘3 = new 페라리();
+        현대 현대리모콘3 = (현대) 자동차리모콘2;
 
-        aLGTv.켜기();
-        // 출력 => LGTv 켜집니다.
-        aLGTv.끄기();
-        // 출력 => LGTv 꺼집니다.
-        aLGTv.게임모드전환();
-        // 출력 => LGTv 게임모드전환!
-
-        System.out.println("== 표준Tv 리모콘 들여온 후 ==");
-
-        // 표준Tv 리모콘을 만든다.
-        표준Tv a표준Tv;
-
-        // a표준Tv 변수에 샤오미Tv 객체를 연결한다.
-        a표준Tv = a샤오미Tv;
-        a표준Tv.켜기();
-        // 출력 : 샤오미TV 켜집니다.
-        a표준Tv.끄기();
-        // 출력 : 샤오미TV 꺼집니다.
-
-        // a표준Tv 변수에 삼성Tv 객체를 연결한다.
-        a표준Tv = a삼성Tv;
-        a표준Tv.켜기();
-        // 출력 : 삼성TV 켜집니다.
-        a표준Tv.끄기();
-        // 출력 : 삼성TV 꺼집니다.
-
-        // a표준Tv 변수에 LGTv 객체를 연결한다.
-        a표준Tv = aLGTv;
-        a표준Tv.켜기();
-        // 출력 : LGTV 켜집니다.
-        a표준Tv.끄기();
-        // 출력 : LGTV 꺼집니다.
-
-        // LGTV만의 고유 기능을 표준Tv 리모콘을 이용해서 호출하기 => 불가능
-        // (LGTv) => a표준Tv 변수에 있던 표준Tv 리모콘이 LGTv리모콘화 해서 `aLGTv2` 변수에 들어간다.
-        LGTv aLGTv2 = (LGTv) a표준Tv; // 클래스 변수 = (클래스자료형) 변수 -> a표준Tv 강제 형변환
-        aLGTv2.게임모드전환();
+        // 수정가능지역 끝
     }
 }
-
-abstract class 표준Tv {
-
-    abstract void 켜기();
-
-    abstract void 끄기();
+class 자동차 {
+    void 달리다() {}
+    void 서다() {}
 }
-
-class 샤오미Tv extends 표준Tv {
-    void 켜기() {
-        System.out.println("샤오미Tv 켜집니다.");
-    }
-
-    void 끄기() {
-        System.out.println("샤오미Tv 꺼집니다.");
-    }
-
-    void vr켜기() {
-        System.out.println("샤오미Tv vr켜기!");
-    }
-
+class 페라리 extends 자동차 {
+    void 뚜껑이_열리다() {}
 }
-
-class 삼성Tv extends 표준Tv {
-    void 켜기() {
-        System.out.println("삼성Tv 켜집니다.");
-    }
-
-    void 끄기() {
-        System.out.println("삼성Tv 꺼집니다.");
-    }
-
-    void ar켜기() {
-        System.out.println("삼성Tv ar켜기!");
-    }
-
-}
-
-class LGTv extends 표준Tv {
-    void 켜기() {
-        System.out.println("LGTv 켜집니다.");
-    }
-
-    void 끄기() {
-        System.out.println("LGTv 꺼집니다.");
-    }
-
-    void 게임모드전환() {
-        System.out.println("LGTv 게임모드전환!");
-    }
-
+class 현대 extends 자동차 {
+    void 멋지다() {}
 }
