@@ -5,86 +5,60 @@ import java.util.Arrays;
 
 // 객체리턴 문제 250313
 
-// 문제 : 아래가 실행되도록 해주세요.
-
 class Main {
     public static void main(String[] args) {
-        전사 a전사 = new 전사();
 
-        String 이름 = "칸";
-        a전사.이름 = 이름;
-        a전사.나이 = 20;
-        a전사.자기소개();
+        System.out.println("=== 개구리1 정보 ===");
+        개구리 개구리1 = new 개구리("keroro", 10500);
+        System.out.println("개구리1 이름 : " + 개구리1.이름);
+        System.out.println("개구리1 나이 : " + 개구리1.나이);
 
-        a전사.나이++;
-        a전사.자기소개();
+        System.out.println("\n=== 개구리2 정보 ===");
+        개구리 개구리2 = new 개구리("쿠루루", 6000);
+        System.out.println("개구리2 이름 : " + 개구리2.이름);
+        System.out.println("개구리2 나이 : " + 개구리2.나이);
 
-        a전사.나이 = 30;
-        a전사.이름 = "진";
-        a전사.자기소개();
+        System.out.println("\n=== 개구리3 정보 ===");
+        개구리 개구리3 = new 개구리("타마마");
+        System.out.println("개구리3 이름 : " + 개구리3.이름);
+        System.out.println("개구리3 나이 : " + 개구리3.나이);
 
-        a전사.a무기 = new 활(); //
-        a전사.공격();
-        //출력 : 진이 활로 공격합니다.
+        System.out.println("\n=== 하위 클래스 객체 생성 ===");
+        개구리 개구리4 = new 도로로();
 
-        a전사.a무기 = new 칼();
-        a전사.공격();
-        //출력 : 진이 칼로 공격합니다.
     }
 }
 
-class 전사 {
-    // 인스턴스 변수
+class 개구리 {
+
     String 이름;
-    // 인스턴스 변수
-    int 나이;
-    // 인스턴스 변수
-    무기 a무기; // 객체를 갖고 있음
+    long 나이;
 
-    // 1번 풀이 -> 오류
-    // String 무기이름 = (String) a무기;
-    // 전사 클래스 안에서 무기명이 정의가 되어야함
-
-    // 2번 풀이 -> 오류
-    // 무기 클래스에 무기명이 없다.
-    //String 무기명 = this.a무기.무기명();
-
-
-    void 자기소개() {
-        System.out.println("안녕하세요. 저는 " + this.나이 + "살 " + this.이름 + " 입니다.");
+    // 생성자 : 객체가 생성될 때 자동으로 실행되는 메서드
+    // 생성자 메서드를 작성하지 않으면 자동으로 생성자메서드가 생김(있는 걸로 인식)
+    // 생성자 이름은 클래스 이름을 따라야한다.
+    // return타입은 없지만 void를 선언하지도 않는다.
+    // 일반함수 취급해도 되지만 수동 실행이 아니고 객체를 생성할 때(new키워드 쓸 때) 자동 실행이된다.
+    개구리(String 이름, int 나이){
+        this.이름 = 이름;
+        this.나이 = 나이;
+    }
+    // 생성자는 오버로딩이 가능하다.
+    // 메서드 시그니처가 다른 경우 다른 함수로 취급한다.
+    // 아래 생성자는 위의 생성자랑 매개변수 갯수가 다르다.
+    개구리(String 이름){
+        this.이름 = 이름;
+        System.out.println("나이를 입력받지 않음");
     }
 
-//    3번 풀이 -> 오류
-//    2번과 같음
-//    void 공격(){
-//        System.out.println(this.이름 + "이 " + this.a무기.무기명 + "로 공격합니다.");
-//    }
-
-    void 공격() {
-        a무기.공격자 = this.이름;
-        this.a무기.공격();
-
-        // 내 풀이
-//        System.out.print(this.이름 + "이 ");
-//        this.a무기.공격();
-
+    개구리() {
+        System.out.println("개구리 생성자 실행");
     }
-}
-
-abstract class 무기 {
-    String 공격자;
-    abstract void 공격(); // abstract 메서드를 만들어 하위 클래스의 메서드를 사용할 수 있게
 
 }
 
-class 칼 extends 무기 {
-    void 공격() {
-        System.out.println(공격자 + "가 칼로 공격합니다."); // this 생략버전
-    }
-}
-
-class 활 extends 무기 {
-    void 공격() {
-        System.out.println(this.공격자 + "가 활로 공격합니다.");
+class 도로로 extends 개구리 {
+    도로로 () {
+        System.out.println("도로로 생성자 실행");
     }
 }
