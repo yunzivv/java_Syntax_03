@@ -1,95 +1,48 @@
 package org.example;
 
+// private 250314
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        v4();
-    }
 
-    static void v4() {
-        System.out.println("==v4==");
-        List articles = new ArrayList<>();
-        articles.add(new Article()); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(new Article()); // index : 2 , id : 3
+        사람 a사람 = new 사람();
+//        a사람.id = 20;
+//        System.out.println(a사람.id);
 
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = (Article) articles.get(i);
-            System.out.println(article.id);
-        }
-    }
-
-    static void v3() {
-        System.out.println("==v3==");
-        ArrayList articles = new ArrayList<>();
-        articles.add(new Article()); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(new Article()); // index : 2 , id : 3
-        articles.add(new Article()); // index : 3 , id : 4
-
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = (Article) articles.get(i);
-            System.out.println(article.id);
-        }
-    }
-
-    static void v2() {
-        System.out.println("==v2==");
-        ArrayList articles = new ArrayList();
-        articles.add(new Article()); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(new Article()); // index : 2 , id : 3
-        articles.add(new Article()); // index : 3 , id : 4
-
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = (Article) articles.get(i);
-            System.out.println(article.id);
-        }
-    }
-
-    static void v1() {
-        System.out.println("==v1==");
-        Article[] articles = new Article[100];
-
-        int articlesSize = 0;
-
-        articles[0] = new Article();
-        articlesSize++;
-        articles[1] = new Article();
-        articlesSize++;
-        articles[2] = new Article();
-        articlesSize++;
-        articles[3] = new Article();
-        articlesSize++;
-        articles[4] = new Article();
-        articlesSize++;
-
-        for (int i = 0; i < articlesSize; i++) {
-            System.out.println(articles[i].id);
-        }
+        // private 변수에 접근하는 방법
+        //
+        a사람.setId(3);
+        System.out.println("번호 : " + a사람.getId());
     }
 }
 
-class Article {
-    static int lastId;
+class 사람 {
+    // private : 접근제한자 중 하나, 내부에서만 접근할 수 있음
+    // 외부에서 직접접근 불가 -> 간접 접근 가능
+    // 클래스의 필드는 private로 작성하는 게 관례
+    private int id = 11;
+    private int age;
 
-    int id;
-    String regDate;
-
-    static {
-        lastId = 0;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    Article() {
-        this(lastId + 1, "2025-12-12 12:12:12"); // 다른 생성자 호출(실행), Constructor Call
-        lastId++;
+    public int getAge() {
+        return age;
     }
 
-    Article(int id, String regDate) {
-        this.id = id;
-        this.regDate = regDate;
+    // 우클릭 -> Generate -> getter, setter, constructor 알아서 만들어 주기도 함
+    // getter
+    public int getId() {
+        return id;
+    }
+
+    // setter
+    public void setId(int id) {
+         this.id = id;
     }
 }
+
