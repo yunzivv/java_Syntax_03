@@ -1,6 +1,6 @@
 package org.example;
 
-// equals 250314
+// Object 클래스 - toString 250314
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,30 +8,31 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        Person p1 = new Person(13);
-        Person p2 = new Person(13);
+        Person a = new Person("케로로", 10);
+        Person b = new Person("쿠루루", 10);
 
-        System.out.println(p1 == p2);
-        System.out.println(p1.equals(p2)); // 어떤 내용이 같을 때인지 명시가 되어있지 않음
+        System.out.println(a); // override 된 메서드가 자동 실행됨
+        System.out.println(b);
 
-        String s1 = "로로";
-        String s2 = "로로";
+        System.out.println("=========================");
+        System.out.println(a.toString());
+        System.out.println(b.toString());
 
-        System.out.println(s1 == s2);
-
-        String r1 = new String("로로");
-        String r2 = new String("로로");
-
-        System.out.println(r1 == r2);
-        System.out.println(r1.equals(r2));
     }
 }
 
-class Person {
-    private int age;
+class Person extends Object { // Object는 최상위 클래스라서 extends가 가능
+    String name;
+    int age ;
 
-    public Person(int age) {
+    Person(String name, int age) {
+        this.name = name;
         this.age = age;
+    }
+
+    @Override // 오버라이딩임을 알려줌. 주석과 같다.
+    public String toString() {
+        return "이름 : " +  name + ", 나이 : " + age;
     }
 }
 
