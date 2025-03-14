@@ -3,40 +3,46 @@ package org.example;
 import java.awt.*;
 import java.util.Arrays;
 
-// 클래스 변수 250314
+// 객체배열 250314
 
-class Main {
+public class Main {
     public static void main(String[] args) {
 
-        Article article1 = new Article();
-        System.out.println(article1.id);
-        Article article2 = new Article();
-        System.out.println(article2.id);
-        Article article3 = new Article();
-        System.out.println(article3.id);
+        int[] arr = new int[10];
 
+        Article[] articles = new Article[10];
+
+        Article article1 = new Article();
+        articles[0] = article1;
+
+        Article article2 = new Article();
+        articles[1] = article2;
+
+        System.out.println(articles[0].id); // 배열 -> 리모콘 -> 객체
+        System.out.println(articles[1].id);
+
+        System.out.println(article1.id); // 리모콘 -> 객체
+        System.out.println(article2.id);
     }
 }
 
 class Article {
-    static int lastid;
-    int id = 1;
-    String regData;
+    static int lastId;
 
-    static  { // 클래스 변수 전용 생성자
-        lastid = 0; // 이거 왜 여기서 초기화?
+    int id;
+    String regDate;
+
+    static {
+        lastId = 0;
     }
 
     Article() {
-        // 다른 생성자 호출(constructor Call)
-        this(lastid + 1, "데이터"); // 이 데이터는 아래 생성자의 인수가 됨
-        lastid++ ;
+        this(lastId + 1, "2025-12-12 12:12:12"); // 다른 생성자 호출(실행), Constructor Call
+        lastId++;
     }
 
-    Article(int id, String regData) { // 호출한 생성자의 this의 인수를 매개변수로
+    Article(int id, String regDate) {
         this.id = id;
-        this.regData = regData;
-
+        this.regDate = regDate;
     }
 }
-
