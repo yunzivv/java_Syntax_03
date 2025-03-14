@@ -1,6 +1,6 @@
 package org.example;
 
-// 문자열비교 250314
+// equals 250314
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,23 +8,30 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-//        String s = new String("케");
-        // 사실 위의 모양임
-        String s = "케";
-        char c ='케';
+        Person p1 = new Person(13);
+        Person p2 = new Person(13);
 
-        // 배열임, 첫번째 글자에 대한 주소가 저장됨
-        String keroro = "keroro"; // k + e + r + o + r + o
+        System.out.println(p1 == p2);
+        System.out.println(p1.equals(p2)); // 어떤 내용이 같을 때인지 명시가 되어있지 않음
 
-        String kururu = "keroro";
+        String s1 = "로로";
+        String s2 = "로로";
 
-        String tamama = "kero";
-        tamama += "ro";
+        System.out.println(s1 == s2);
 
-        System.out.println(keroro == kururu);
-        System.out.println(keroro == tamama);
-        System.out.println(keroro.equals(tamama)); // 값을 비교
+        String r1 = new String("로로");
+        String r2 = new String("로로");
 
+        System.out.println(r1 == r2);
+        System.out.println(r1.equals(r2));
+    }
+}
+
+class Person {
+    private int age;
+
+    public Person(int age) {
+        this.age = age;
     }
 }
 
