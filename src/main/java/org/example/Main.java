@@ -1,6 +1,6 @@
 package org.example;
 
-// ASCII Code 250314
+// 문자열비교 250314
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,19 +8,23 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println((int)'1');
-        System.out.println(isHanguel(' '));
-        System.out.println(isHanguel('안'));
-        System.out.println(isHanguel('녕'));
-        System.out.println(isHanguel('하'));
-        System.out.println(isHanguel('세'));
-        System.out.println(isHanguel('요'));
-        System.out.println(isHanguel('.'));
+//        String s = new String("케");
+        // 사실 위의 모양임
+        String s = "케";
+        char c ='케';
 
-    }
-    static boolean isHanguel(char c){
+        // 배열임, 첫번째 글자에 대한 주소가 저장됨
+        String keroro = "keroro"; // k + e + r + o + r + o
 
-        return c >= '가' && c <= '힣'; // 44032 ~ 55204 총 11172개
+        String kururu = "keroro";
+
+        String tamama = "kero";
+        tamama += "ro";
+
+        System.out.println(keroro == kururu);
+        System.out.println(keroro == tamama);
+        System.out.println(keroro.equals(tamama)); // 값을 비교
+
     }
 }
 
