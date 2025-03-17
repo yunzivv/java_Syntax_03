@@ -1,19 +1,17 @@
 
 package org.example;
 
-// 백준 10926 250317
+// 백준 18108 250317
 
-import java.util.HashMap;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String A = sc.nextLine();
+        int A = sc.nextInt();
 
-        System.out.println(A + "??!");
+        System.out.println(A - 543);
 
     }
 }
