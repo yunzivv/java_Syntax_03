@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 2438 250317
+// 백준 2439 250317
 
 import java.util.Scanner;
 
@@ -12,7 +12,10 @@ class Main {
         int starline = sc.nextInt();
 
         for (int i = 1; i <= starline; i++){
-            for (int count = 1; count <= i; count++){
+            for (int space = starline - 1; space >= i; space--){
+                System.out.print(" ");
+            }
+            for (int star = 1; star <= i; star++){
                 System.out.print("*");
             }
             System.out.println("");
