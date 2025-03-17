@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 11021 250317
+// 백준 11022 250317
 
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ class Main {
         }
         for (int count = 0; count < testcase; count++) {
             sum = numbers[lastindex] + numbers[lastindex + 1];
-            System.out.printf("Case #%d: %d\n", count + 1, sum);
+            System.out.printf("Case #%d: %d + %d = %d\n", count + 1, numbers[lastindex], numbers[lastindex+1], sum);
             lastindex += 2;
         }
     }
