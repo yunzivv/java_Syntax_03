@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 2753 250317
+// 백준 14681 250317
 
 import java.util.Scanner;
 
@@ -9,12 +9,17 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int year = sc.nextInt();
+        int x = sc.nextInt();
+        int y = sc.nextInt();
 
-        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        if (x > 0 && y > 0) {
             System.out.println(1);
+        } else if(x < 0 && y > 0){
+            System.out.println(2);
+        } else if(x < 0 && y < 0){
+            System.out.println(3);
         } else {
-            System.out.println(0);
+            System.out.println(4);
         }
 
     }
