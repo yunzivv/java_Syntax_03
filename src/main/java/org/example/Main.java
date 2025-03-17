@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 14681 250317
+// 백준 2884 250317
 
 import java.util.Scanner;
 
@@ -9,17 +9,20 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int x = sc.nextInt();
-        int y = sc.nextInt();
+        int h = sc.nextInt();
+        int m = sc.nextInt();
 
-        if (x > 0 && y > 0) {
-            System.out.println(1);
-        } else if(x < 0 && y > 0){
-            System.out.println(2);
-        } else if(x < 0 && y < 0){
-            System.out.println(3);
-        } else {
-            System.out.println(4);
+        if (m >= 45) {
+            System.out.println(h);
+            System.out.println(m - 45);
+        }  else {
+            h -= 1;
+            if (h == -1) {
+                h = 23;
+            }
+            m = m + 15;
+            System.out.println(h);
+            System.out.println(m);
         }
 
     }
