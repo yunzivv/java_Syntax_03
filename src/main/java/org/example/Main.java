@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 8393 250317
+// 백준 25304 250317
 
 import java.util.Scanner;
 
@@ -9,12 +9,25 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        int sum = 0;
+        int sumprice = sc.nextInt();
+        int totalcount = sc.nextInt();
+        int[] receiptlist = new int[totalcount * 2];
 
-        for (int i = 1; i <= n; i++){
-            sum += i;
+        int checkprice = 0;
+        int lastindex = 0;
+
+        for (int i = 0; i < totalcount * 2; i++) {
+            receiptlist[i] = sc.nextInt();
         }
-        System.out.println(sum);
+
+        for (int i = 0; i < totalcount; i++){
+            checkprice += receiptlist[lastindex] * receiptlist[lastindex+1];
+            lastindex += 2;
+        }
+        if (checkprice == sumprice) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
     }
 }
