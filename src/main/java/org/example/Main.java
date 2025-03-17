@@ -1,8 +1,8 @@
+
 package org.example;
 
-// 종합문제 푸는 중 250314
-// Array List가 3개나 존재할 필요 없다.
-// 수정해보기
+// 종합문제 250315
+// ArrayList 사용 버전2
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,26 +13,25 @@ class Main {
     public static void main(String[] args) {
         사람인력관리소 a사람인력관리소 = new 사람인력관리소();
 
-        a사람인력관리소.add사람("홍길순", 33);
-        // 나이가 33살인 1번째 사람(홍길순)이 추가되었습니다.
+        a사람인력관리소.add사람("홍길순", 33); // add사람 메서드는 사람 인스턴스를 생성한다.
+// 나이가 33살인 1번째 사람(홍길순)이 추가되었습니다.
         a사람인력관리소.add사람("홍길동", 20);
-        // 나이가 20살인 2번째 사람(홍길동)이 추가되었습니다.
+// 나이가 20살인 2번째 사람(홍길동)이 추가되었습니다.
         a사람인력관리소.add사람("임꺽정", 30);
-        // 나이가 30살인 3번째 사람(임꺽정)이 추가되었습니다.
+// 나이가 30살인 3번째 사람(임꺽정)이 추가되었습니다.
         a사람인력관리소.add사람("케로로", 10);
-
 
         사람 a사람1 = a사람인력관리소.get사람(1);
         a사람1.자기소개();
-        // 저는 1번, 홍길순, 33살 입니다.
+// 저는 1번, 홍길순, 33살 입니다.
 
         사람 a사람2 = a사람인력관리소.get사람(2);
         a사람2.자기소개();
-        // 저는 2번, 홍길동, 20살 입니다.
+// 저는 2번, 홍길동, 20살 입니다.
 
         사람 a사람3 = a사람인력관리소.get사람(3);
         a사람3.자기소개();
-        // 저는 3번, 임꺽정, 30살 입니다.
+// 저는 3번, 임꺽정, 30살 입니다.
 
         사람 a사람4 = a사람인력관리소.get사람(4);
         a사람4.자기소개();
@@ -41,27 +40,22 @@ class Main {
 
 class 사람인력관리소 {
 
-    static int num = 0;
-    static String name;
-    static int age;
-    static ArrayList<Integer> numbers = new ArrayList<>();
-    static ArrayList<String> names = new ArrayList<>();
-    static ArrayList<Integer> ages = new ArrayList<>();
-
+    private int num = 0;
+    private String name;
+    private int age;
+    private ArrayList<사람> members = new ArrayList<>();
 
     void add사람(String name, int age){
 
         num++;
-        numbers.add(num);
-        names.add(name);
-        ages.add(age);
+        사람 사람인스턴스 = new 사람(this.num, name, age);
+        members.add(사람인스턴스);
 
-        System.out.printf("나이가 %d살인 %d번째 사람(%s)이 추가되었습니다.\n", age, num, name);
+        System.out.printf("나이가 %d살인 %d번째 사람(%s)이 추가되었습니다.\n", age, this.num, name);
     }
 
     사람 get사람(int i) {
-        i -= 1;
-        return new 사람(numbers.get(i), names.get(i), ages.get(i));
+        return members.get(i-1);
     }
 }
 
@@ -82,3 +76,4 @@ class 사람 {
     }
 
 }
+
