@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 11022 250317
+// 백준 2438 250317
 
 import java.util.Scanner;
 
@@ -9,18 +9,13 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int testcase = sc.nextInt();
-        int[] numbers = new int[testcase * 2];
-        int sum;
-        int lastindex = 0;
+        int starline = sc.nextInt();
 
-        for (int i = 0; i < testcase * 2; i++) {
-            numbers[i] = sc.nextInt();
-        }
-        for (int count = 0; count < testcase; count++) {
-            sum = numbers[lastindex] + numbers[lastindex + 1];
-            System.out.printf("Case #%d: %d + %d = %d\n", count + 1, numbers[lastindex], numbers[lastindex+1], sum);
-            lastindex += 2;
+        for (int i = 1; i <= starline; i++){
+            for (int count = 1; count <= i; count++){
+                System.out.print("*");
+            }
+            System.out.println("");
         }
     }
 }
