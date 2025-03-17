@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 11382 250317
+// 백준 10171 250317
 
 import java.util.Scanner;
 
@@ -9,11 +9,10 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        long a = sc.nextLong();
-        long b = sc.nextLong();
-        long c = sc.nextLong();
-
-        System.out.println(a+b+c);
+        System.out.println("\\    /\\");
+        System.out.println(" )  ( ')");
+        System.out.println("(  /  )");
+        System.out.println(" \\(__)|");
 
     }
 }
