@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 2557 250317
+// 백준 10998 250317
 
 import java.util.HashMap;
 import java.util.InputMismatchException;
@@ -14,7 +14,7 @@ class Main {
         int A = sc.nextInt();
         int B = sc.nextInt();
 
-        System.out.println(A - B);
+        System.out.println(A * B);
 
     }
 }
