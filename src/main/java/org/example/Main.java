@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 백준 9498 250317
+// 백준 2753 250317
 
 import java.util.Scanner;
 
@@ -9,18 +9,12 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int score = sc.nextInt();
+        int year = sc.nextInt();
 
-        if (score > 89) {
-            System.out.println("A");
-        } else if (score > 79) {
-            System.out.println("B");
-        } else if (score > 69) {
-        System.out.println("C");
-        } else if (score > 59) {
-            System.out.println("D");
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            System.out.println(1);
         } else {
-            System.out.println("F");
+            System.out.println(0);
         }
 
     }
