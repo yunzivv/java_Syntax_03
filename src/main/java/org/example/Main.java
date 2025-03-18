@@ -1,9 +1,10 @@
 
 package org.example;
 
-// 백준 2439 250317
+// stream, parse 250317
 
-import java.util.ArrayList;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,23 +12,20 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        List<Integer> numbers = new ArrayList<>();
-        int lastindex = 0;
+        String[] input = sc.nextLine().split(" ");
 
-        while (true) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            numbers.add(a);
-            numbers.add(b);
-            if (a == 0 && b == 0) {
-                break;
-            }
-        }
-        int size = numbers.size();
-        for (int i = 0; i < (numbers.size() - 2) / 2; i++) {
-            int sum = numbers.get(lastindex) + numbers.get(lastindex + 1);
-            System.out.println(sum);
-            lastindex += 2;
-        }
+        long sum = Arrays.stream(input)
+                // 하나하나 Long으로 변경
+                // e : 요소
+                .mapToLong(e -> Long.parseLong(e))
+                .sum();
+
+//        long sum = 0;
+//
+//        for (String inputData : input) {
+//            sum += Long.parseLong((inputData))
+//        }
+
+        System.out.println(sum);
     }
 }
