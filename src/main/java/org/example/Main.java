@@ -1,7 +1,7 @@
 
 package org.example;
 
-// 여러가지 stream 250317
+// stream, filter, map 사용해서 홀수 걸러내기 250317
 
 
 import java.util.Arrays;
@@ -9,56 +9,47 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-import java.util.stream.IntStream;
 
 class Main {
     public static void main(String[] args) {
+
         // 일반
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i);
+        int[] arr = {33, 2, 55, 4, 51, 6, 71, 18, 29, 10};
+
+        // filter 시작
+        int resultArrLen = 0;
+
+        for (int n : arr) if (n % 2 == 0) resultArrLen++;
+
+        int[] resultArr = new int[resultArrLen];
+
+        int resultArrLastIndex = -1;
+
+        for (int n : arr) {
+            if (n % 2 != 0) continue;
+
+            resultArr[++resultArrLastIndex] = n;
         }
+        // filter 끝
 
-        // 스트림
-        IntStream.rangeClosed(1, 10)
-                .forEach(e -> {
-                    System.out.println(e);
-                });
-
-        // 스트림
-        IntStream.rangeClosed(1, 10)
-                .forEach(e -> System.out.println(e));
-
-        // 스트림
-        IntStream.rangeClosed(1, 10)
-                .forEach(System.out::println);
-    }
-}
-
-class Main2 {
-    public static void main(String[] args) {
-        // 일반
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] *= 2;
+        // map 시작
+        for (int i = 0; i < resultArr.length; i++) {
+            resultArr[i] *= 2;
         }
+        // map 끝
 
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(resultArr));
 
         // 스트림
-        arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-        int[] resultArr = Arrays.stream(arr)
-                .map(e -> {
-                    return e * 2;
-                })
-                .toArray();
+        arr = new int[]{33, 2, 55, 4, 51, 6, 71, 18, 29, 10};
 
         resultArr = Arrays.stream(arr)
-                .map(e -> e * 2) // 이런식으로 줄여쓸 수 있다.
+                .filter(e -> e % 2 == 0)
+                .map(e -> e * 2)
                 .toArray();
 
-        System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.toString(resultArr));
+
     }
 }
+
