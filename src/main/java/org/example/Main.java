@@ -10,6 +10,7 @@ class Main {
         Scanner sc = new Scanner(System.in);
 
         int all = sc.nextInt();
+        int standard = sc.nextInt();
         int[] numbers = new int[all];
         int count = 0;
 
@@ -17,12 +18,10 @@ class Main {
             numbers[i] = sc.nextInt();
         }
 
-        int check = sc.nextInt();
         for(int i = 0; i < all; i++){
-            if(numbers[i] == check){
-                count++;
+            if(numbers[i] < standard){
+                System.out.println(numbers[i]);
             }
         }
-        System.out.println(count);
     }
 }
