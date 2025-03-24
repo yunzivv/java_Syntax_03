@@ -1,27 +1,43 @@
-
 package org.example;
 
-// 백준 10807 250319
+// 백준 5597 250324
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-class Main {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int all = sc.nextInt();
-        int standard = sc.nextInt();
-        int[] numbers = new int[all];
-        int count = 0;
+        int[] numbers = new int[28];
+        ArrayList<Integer> no = new ArrayList<>();
 
-        for (int i = 0; i < all; i++){
-            numbers[i] = sc.nextInt();
+        for (int i = 0; i < 28; i++) {
+            numbers[i] = Integer.parseInt(sc.nextLine());
         }
 
-        for(int i = 0; i < all; i++){
-            if(numbers[i] < standard){
-                System.out.println(numbers[i]);
+        boolean check;
+        for (int i = 1; i <= 30; i++) {
+            check = true;
+            for (int n : numbers) {
+                if (n == i) {
+                    check = false;
+                    break;
+                }
+            }
+            if (check) {
+                no.add(i);
             }
         }
+
+        if(no.get(0) > no.get(1)) {
+            System.out.println(no.get(1));
+            System.out.println(no.get(0));
+        } else {
+            System.out.println(no.get(0));
+            System.out.println(no.get(1));
+        }
+
+        sc.close();
     }
 }
