@@ -1,42 +1,34 @@
 package org.example;
 
-// 백준 5597 250324
+// 백준 3052 250331
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int[] numbers = new int[28];
-        ArrayList<Integer> no = new ArrayList<>();
-
-        for (int i = 0; i < 28; i++) {
+        int[] numbers = new int[10];
+        for (int i = 0; i < 10; i++) {
             numbers[i] = Integer.parseInt(sc.nextLine());
         }
 
-        boolean check;
-        for (int i = 1; i <= 30; i++) {
-            check = true;
-            for (int n : numbers) {
-                if (n == i) {
-                    check = false;
-                    break;
-                }
-            }
-            if (check) {
-                no.add(i);
-            }
+        int[] remainder = new int[10];
+        for (int i = 0; i < 10; i++) {
+            remainder[i] = numbers[i] % 42;
         }
+        Arrays.sort(remainder);
 
-        if(no.get(0) > no.get(1)) {
-            System.out.println(no.get(1));
-            System.out.println(no.get(0));
-        } else {
-            System.out.println(no.get(0));
-            System.out.println(no.get(1));
+        int countRemainder = 1;
+        for (int i = 0; i < 9; i++) {
+            if(remainder[i] != remainder[i+1])  {
+                countRemainder++;
+            }
+
         }
+        System.out.println(countRemainder);
 
         sc.close();
     }
